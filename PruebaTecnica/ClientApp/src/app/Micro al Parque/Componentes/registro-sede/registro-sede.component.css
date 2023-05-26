@@ -1,0 +1,22 @@
+
+.cabecera-formulario {
+    background-color:rgb(252, 42, 42);
+    padding: 2%; margin: 3%;
+    margin-bottom: 14px; border-radius: 6px;
+}
+.cabecera-formulario p{
+    text-align:center; font-weight: 500;
+    font-size: 40px; color: #FFFFFF;
+}
+
+.img {margin-left: 70px; margin-top: 70px;}
+
+.cuerpo {margin: 3%; display: flex;}
+
+.modal-footer {width: 100% !important;}
+
+.button {display: flex; margin-bottom: 3%;}
+
+.notabla {width: 100%; height: 40px; font-size: 120%; font-weight: 600; color: #817b7b;}
+
+.card {margin: 0 auto; float: none;}

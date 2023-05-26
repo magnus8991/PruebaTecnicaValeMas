@@ -1,0 +1,138 @@
+.sidebar {
+  font-family: 'Roboto', sans-serif;
+  position: fixed; height: 545px !important;
+  left: -270px;   width: 270px;
+  background: rgb(44, 41, 41);
+  transition: all .5s ease;
+}
+
+* {
+  margin: 0; padding: 0;
+  top: 80px; list-style: none;
+  text-decoration: none;
+}
+
+.sidebar:hover {
+  overflow-y: scroll !important;
+}
+
+.sidebar header {
+  padding-left: 20px;
+  font-size: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #FFFF; height: 200px;
+  background:rgb(29, 27, 27);
+  background-image: url('../../assets/logoMicroAlParque.png');
+  background-size: 45%;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: -10px 5px 10px 5px #000000;
+}
+
+.sidebar ul a {
+  display: block;
+  height: 100%; width: 100%;
+  line-height: 60px; font-size: 16px;
+  color: #FFFF;
+  padding-left: 40px;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.068);
+  transition: .4s;
+  box-shadow: -10px 5px 15px -2px #000000;
+}
+
+ul li:hover a {
+  font-size: 19px;
+  padding-left: 60px;
+  padding-top: 5px;
+  text-decoration: none;
+  color: rgb(255, 25, 25);
+  background: rgb(75, 71, 71);
+}
+
+ul li:active a {background: rgb(240, 234, 234); color: #000000;}
+
+.sidebar ul a i {
+  margin-right: 16px;
+}
+
+#check {
+  display: none;
+}
+
+label #btn, label #cancel {
+  position: absolute;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+label #btn {
+  position: fixed;
+  left: 20px; top: 0;
+  width: 70px; height: 60px;
+  z-index: 1111;
+  font-size: 35px;
+  color:#FFFF;
+  padding: 13px 19px;
+  transition: all .5s;
+  box-shadow: 0px 0px 30px -10px black;
+}
+
+label #cancel {
+  position: fixed;
+  width: 70px; height: 60px;
+  z-index: 1111;
+  left: -80px; top: 0;
+  font-size: 40px;
+  color:#FFFF;
+  padding: 12px 21px;
+  transition: all .5s ease;
+  box-shadow: 0px 0px 30px -10px black;
+}
+
+label #btn:hover, label #cancel:hover {
+  color:rgb(209, 9, 9);
+}
+
+#check:checked ~ .sidebar {
+  left: 0;
+}
+
+#check:checked ~ label #btn {
+  left: 270px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#check:checked ~ label #cancel {
+  left: 20px;
+}
+
+#check:checked ~ section {
+  margin-left: 290px;
+}
+
+section {
+  transition: all .5s;
+  margin-top: 60px !important;
+}
+
+.sidebar::-webkit-scrollbar {
+  width:8px; height: 10px;
+  -webkit-appearance: none;
+}
+
+.sidebar::-webkit-scrollbar-button:increment,.sidebar::-webkit-scrollbar-button {
+  display: none;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #666161;
+  border-radius: 20px;
+  border: 1px solid #7c7474;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  border-radius: 10px;
+}

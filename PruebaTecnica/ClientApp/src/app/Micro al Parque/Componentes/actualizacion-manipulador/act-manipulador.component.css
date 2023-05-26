@@ -1,0 +1,81 @@
+.cabecera-formulario {
+  background-color:rgb(252, 42, 42);
+  padding: 5;
+  margin-bottom: 14px;
+  border-radius: 6px;
+}
+.cabecera-formulario p{
+  text-align:center;
+  font-size: 20px;
+  color: ivory;
+}
+h3
+{
+  text-align: center;
+}
+.img {
+  margin-left: 70px;
+  margin-top: 70px;
+}
+
+.card {
+margin: 0 auto;
+float: none;
+margin-bottom: 10px;
+}
+
+.btn-guardar
+{
+color: white;
+background-color: rgb(252, 42, 42);
+border-radius: 6px;
+font-size: 18px;
+border: 2px solid rgb(252, 42, 42);
+padding: 16;
+height: 37px;
+margin: 5px;
+}
+.btn-cancelar
+{
+color: white;
+background-color:  rgb(53, 49, 49);
+border-radius: 6px;
+font-size: 18px;
+border: 2px solid rgb(53, 49, 49);
+padding: 16;
+height: 37px;
+margin: 5px;
+}
+.btn-cancelar i
+{
+padding-right: 15px;
+}
+.btn-guardar i
+{
+padding-right: 15px;
+}
+.btn-guardar:hover
+{
+color: rgb(231, 236, 241);
+background-color: rgb(252, 34, 34);
+border: 2px solid rgb(252, 34, 34);
+}
+.btn-cancelar:hover
+{
+color: rgb(231, 236, 241);
+background-color: rgb(39, 38, 38);
+border: 2px solid rgb(39, 38, 38);
+}
+
+
+input
+{
+  margin-right: 15px;
+}
+.example-full-width {
+  width: 100%;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}

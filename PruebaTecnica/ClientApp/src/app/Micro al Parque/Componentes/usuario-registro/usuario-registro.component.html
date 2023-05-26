@@ -1,0 +1,208 @@
+<div class="header">
+    <h1 class="modal-title">REGISTRAR USUARIO</h1>
+  </div>
+<div class="modal-body container">
+    <form [formGroup]="formularioRegistro">
+
+        <div class="col-md-12 row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Identificacion:</label>
+                    <input type="text" name="identificacion" formControlName="identificacion"
+                        [(ngModel)]="peticion.elemento.identificacion" placeholder="Digite aquí su identificacion"
+                        class="form-control">
+                    <div *ngIf="identificacion.invalid && (identificacion.dirty || identificacion.touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="identificacion.errors.required">
+                            La identificación es un valor requerido
+                        </div>
+                        <div *ngIf="identificacion.errors.minlength">
+                            El numero de identificación debe tener más de 7 caracteres
+                        </div>
+                        <div *ngIf="identificacion.errors.maxlength">
+                            El numero de identificación debe tener menos de 10 caracteres
+                        </div>
+                        <div *ngIf="identificacion.errors.pattern">
+                            Solo debe escribir números
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>E-mail:</label>
+                    <input type="text" name="email" formControlName="email" class="form-control"
+                        [(ngModel)]="peticion.elemento.email" placeholder="Digite aquí su e-mail">
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                        <div *ngIf="email.errors.required">
+                            El e-mail es un valor requerido
+                        </div>
+                        <div *ngIf="email.errors.maxlength">
+                            El e-mail no debe tener más de 25 caracteres
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Nombres:</label>
+                    <input type="text" name="nombres" formControlName="nombres" [(ngModel)]="peticion.elemento.nombres"
+                        placeholder="Digite aquí su nombre" class="form-control">
+                    <div *ngIf="nombres.invalid && (nombres.dirty || nombres.touched)" class="alert alert-danger">
+                        <div *ngIf="nombres.errors.required">
+                            El nombre es un valor requerido
+                        </div>
+                        <div *ngIf="nombres.errors.maxlength">
+                            El nombre no debe tener más de 25 caracteres
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Primer Apellido:</label>
+                    <input type="text" name="primerApellido" formControlName="primerApellido"
+                        [(ngModel)]="peticion.elemento.primerApellido" placeholder="Digite aquí su primer apellido"
+                        class="form-control">
+                    <div *ngIf="primerApellido.invalid && (primerApellido.dirty || primerApellido.touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="primerApellido.errors.required">
+                            El primer Apellido es un valor requerido
+                        </div>
+                        <div *ngIf="primerApellido.errors.maxlength">
+                            El primer Apellido no debe tener más de 25 caracteres
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Segundo Apellido:</label>
+                    <input type="text" name="segundoApellido" formControlName="segundoApellido"
+                        [(ngModel)]="peticion.elemento.segundoApellido" placeholder="Digite aquí su segundo apellido"
+                        class="form-control">
+                    <div *ngIf="segundoApellido.invalid && (segundoApellido.dirty || segundoApellido.touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="segundoApellido.errors.required">
+                            El segundo apellido es un valor requerido
+                        </div>
+                        <div *ngIf="segundoApellido.errors.maxlength">
+                            El segundo apellido no debe debe tener más de 25 caracteres
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>sexo:</label>
+                    <select type="text" name="sexo" formControlName="sexo" [(ngModel)]="peticion.elemento.sexo"
+                        placeholder="Digite aquí su estado civil" class="form-control">
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                    </select>
+                    <div *ngIf="sexo.invalid && (sexo.dirty ||
+                            sexo.touched)" class="alert alert-danger">
+                        <div *ngIf="sexo.errors.required">
+                            El sexo es un valor requerido
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Edad:</label>
+                    <input type="number" name="edad" formControlName="edad" [(ngModel)]="peticion.elemento.edad"
+                        placeholder="Digite aquí su edad" class="form-control">
+                    <div *ngIf="edad.invalid &&
+                            (edad.dirty ||
+                            edad.touched)" class="alert alert-danger">
+                        <div *ngIf="edad.errors.required">
+                            La edad es un valor requerido
+                        </div>
+                        <div *ngIf="edad.errors.min || edad.errors.max">
+                            La edad debe estar entre 1 y 120 años
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 row">
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Rol:</label>
+                    <select type="text" name="rol" formControlName="rol" [(ngModel)]="peticion.elemento.rol"
+                        placeholder="Digite aquí su estado civil" class="form-control">
+                        <option value="Administrador">Administrador</option>
+                        <option value="Usuario Estandar">Usuario Estándar</option>
+                    </select>
+                    <div *ngIf="rol.invalid && (rol.dirty ||
+                            rol.touched)" class="alert alert-danger">
+                        <div *ngIf="rol.errors.required">
+                            El rol es un valor requerido
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Nombre de usuario:</label>
+                    <input type="text" name="nombreUsuario" formControlName="nombreUsuario"
+                        [(ngModel)]="peticion.elemento.nombreUsuario" placeholder="Digite aquí su nombre de usuario"
+                        class="form-control">
+                    <div *ngIf="nombreUsuario.invalid &&
+                            (nombreUsuario.dirty ||
+                            nombreUsuario.touched)" class="alert alert-danger">
+                        <div *ngIf="nombreUsuario.errors.required">
+                            El nombre de usuario es un valor requerido
+                        </div>
+                        <div *ngIf="nombreUsuario.errors.maxlength">
+                            El nombre de usuario no debe debe tener más de 20 caracteres
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Contraseña:</label>
+                    <input type="password" name="contrasena" formControlName="contrasena"
+                        [(ngModel)]="peticion.elemento.contrasena" placeholder="Digite aquí su contraseña"
+                        class="form-control">
+                    <div *ngIf="contrasena.invalid &&
+                            (contrasena.dirty ||
+                            contrasena.touched)" class="alert alert-danger">
+                        <div *ngIf="contrasena.errors.required">
+                            La contraseña es un valor requerido
+                        </div>
+                        <div *ngIf="contrasena.errors.maxlength">
+                            La contraseña no debe debe tener más de 20 caracteres
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button mat-button (click)="add()" [disabled]="formularioRegistro.invalid">
+                <mat-icon>how_to_reg</mat-icon>Registrar
+            </button>
+            
+            <button type="reset" mat-button>
+                <mat-icon>delete_sweep</mat-icon>Resetear formulario
+            </button>
+        </div>
+    </form>
+</div>

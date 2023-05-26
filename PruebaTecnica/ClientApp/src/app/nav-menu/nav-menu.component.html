@@ -1,0 +1,20 @@
+<input type="checkbox" id="check" *ngIf="currentUser">
+<label for="check">
+  <i class="fas fa-bars" id="btn" *ngIf="currentUser"></i>
+  <i class="fas fa-times" id="cancel" *ngIf="currentUser"></i>
+</label>
+<div class="sidebar"  *ngIf="currentUser">
+  <ul>
+    <header> </header>
+    <li *ngIf="currentUser"><a [routerLink]='["/"]'><i class="fas fa-home"></i> Inicio</a></li>
+    <li *ngIf="currentUser"><a [routerLink]='["/nosotros"]'><i class="fas fa-users"></i> ¿Quiénes somos?</a></li>
+    <li *ngIf="currentUser"><a [routerLink]='["/FAQ"]'><i class="fas fa-question-circle"></i> FAQ de usuario</a></li>
+    <li *ngIf="currentUser"><a [routerLink]='["/gestionRestaurante"]'><i class="fas fa-utensils"></i>Restaurantes</a></li>
+    <li *ngIf="currentUser"><a [routerLink]='["/estadistica"]'><i class="fas fa-search"></i> Resultados</a></li>
+    <li *ngIf="currentUser"><a [routerLink]='["/login", true]'><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+  </ul>
+</div>
+<section>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+</section>

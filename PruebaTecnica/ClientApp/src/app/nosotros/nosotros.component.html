@@ -1,0 +1,69 @@
+<div class="container encabezado">
+    <div class="cabecera-formulario">
+        <p>Programa de Microbiología - UPC</p>
+    </div>
+
+    <ngb-carousel *ngIf="imagenes.imagenesPrograma" [interval]="1500" [showNavigationArrows]="showNavigationArrows"
+        [ngClass]="direction" (slide)="sliderOn($event)">
+        <ng-template ngbSlide *ngFor="let image of imagenes.imagenesPrograma">
+            <div class="picsum-img-wrapper">
+                <a href="">
+                    <img [src]="image.src" alt="Random slide">
+                </a>
+            </div>
+            <div class="carousel-caption">
+                <p class="programa">Programa de Microbiología - UPC</p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+
+    <p class="texto">El Programa de Microbiología de la Universidad Popular del Cesar está adscrito a la Facultad
+        Ciencias de la Salud, su
+        estructura curricular se caracteriza por formar microbiólogos integrales, competentes para asumir liderazgo en
+        el
+        control y aprovechamiento de los microorganismos; el plan de estudios está compuesto por cursos teóricos,
+        teórico-prácticos, electivos e interdisciplinarios, con reconocimiento en créditos académicos que valoran el
+        trabajo
+        del estudiante; el plan de estudios está organizado en dos ciclos, el básico y el profesional; por áreas de:
+        formación básica, Formación socio-humanística, Formación profesional específica y Formación profesional
+        complementaria e investigativa. Además, los requisitos de grado entre los que se encuentran los cursos extraplan
+        (Idioma Extranjero, Actividad Deportiva, Actividad Cultural, Cátedra de Negocios Internacionales e Informática).
+    </p>
+
+    <div class="cabecera-formulario">
+        <p>Misión</p>
+    </div>
+
+    <p class="texto">Formar profesionales integrales, competentes para asumir liderazgo en el control y aprovechamiento
+        de los
+        microorganismos, haciendo énfasis en los conceptos básicos y de investigación en un ambiente que promueve el
+        desarrollo científico, cultural y social, que contribuya con el mejoramiento de la calidad de vida local,
+        regional,
+        nacional e internacional.</p>
+
+    <div class="cabecera-formulario">
+        <p>Visión</p>
+    </div>
+
+    <p class="texto">Ser líderes en la formación de profesionales con alta calidad académica, reconocidos por sus
+        aportes al mejoramiento
+        de las condiciones de vida a través del estudio y la aplicación de la Microbiología.</p>
+
+    <div class="cabecera-formulario">
+        <p>Proyecto - Micro al Parque</p>
+    </div>
+
+    <ngb-carousel *ngIf="imagenes.imagenesProyecto" [interval]="1500" [showNavigationArrows]="showNavigationArrows"
+        [ngClass]="direction" (slide)="sliderOn($event)">
+        <ng-template ngbSlide *ngFor="let image of imagenes.imagenesProyecto">
+            <div class="picsum-img-wrapper">
+                <a href="">
+                    <img [src]="image.src" alt="Random slide">
+                </a>
+            </div>
+            <div class="carousel-caption">
+                <p class="proyecto">Proyecto Micro al Parque - Programa de Microbiología</p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+</div>

@@ -1,0 +1,96 @@
+<div class="container encabezado" id="cuerpo">
+  <div class="row">
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <div class="col-md-12">
+        <h1 class="titulo">GESTIÓN DE RESTAURANTES</h1>
+        <div *ngIf="!peticion.elementos.length" class="row">
+          <div class="col-md-6">
+            <h3 class="hnotabla">
+              ¡Lo sentimos, no tienes restaurantes registrados!
+              <i class="fas fa-sad-tear"></i>
+            </h3>
+          </div>
+          <div class="col-md-6 button">
+            <button class="notabla addRestaurante" mat-button (click)="RegistrarRestaurante()">
+              <mat-icon>add_business</mat-icon> Nuevo Restaurante</button>
+          </div>
+        </div>
+        <div *ngIf="peticion.elementos.length" class="sincondicion">
+          <div class="col-md-6">
+            <mat-form-field class="filtro">
+              <mat-label>Filtrar</mat-label>
+              <input matInput (keyup)="applyFilter($event)"
+              placeholder="Ejemplo: 1234567890345 / Cataratas" #input>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6 button">
+            <button class="notabla addRestaurante" mat-button (click)="RegistrarRestaurante()">
+              <mat-icon>add_business</mat-icon> Nuevo Restaurante
+              </button>
+          </div>
+        </div>
+      </div>
+      <br /><br />
+      <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+        <ng-container matColumnDef="Nit">
+          <th mat-header-cell *matHeaderCellDef>Nit</th>
+          <td mat-cell *matCellDef="let element">{{ element.nit }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="NombreRestaurante">
+          <th mat-header-cell *matHeaderCellDef>Nombre Restaurante</th>
+          <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let element">
+            <div class="row">
+              <div class="col-md-5">
+                <button name="modifyRestaurante" mat-flat-button color="accent" class="left tabla" (click)="Modificar(element.nit)" >
+                  <mat-icon>edit</mat-icon> Editar
+                </button>
+              </div>
+              <div class="col-md-5">
+                <button name="btnSedes" mat-flat-button color="primary" class="tabla" [routerLink]="['/gestionSede', element.nit]">
+                  <mat-icon>domain</mat-icon> Sedes
+                </button>
+              </div>
+              
+            </div>
+          </td>
+        </ng-container>
+
+        <!-- Expanded Content Column - The detail row is made up of this one column that spans across all columns -->
+        <ng-container matColumnDef="expandedDetail">
+          <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+            <div class="example-element-detail" [@detailExpand]="
+                element == expandedElement ? 'expanded' : 'collapsed'
+              ">
+              <mat-list class="example-label">
+                <mat-list-item class="example-button-row">
+                  <mat-icon class="prop" matListIcon color="primary">account_box</mat-icon>
+                  <h1 matLine>Informacion del propietario</h1>
+                  <h6 matLine> - Nombres : {{ObtenerNombreCompleto(element) }}</h6>
+                  <h6 matLine> - Identificacion : {{element.propietario.identificacion }}</h6>
+                </mat-list-item>
+              </mat-list>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+        <tr mat-row *matRowDef="let element; columns: columnsToDisplay" class="example-element-row"
+          [class.example-expanded-row]="expandedElement === element" (click)="
+            expandedElement = expandedElement === element ? null : element"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+      </table>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+</div>

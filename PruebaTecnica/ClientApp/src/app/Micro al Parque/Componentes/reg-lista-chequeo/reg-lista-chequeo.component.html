@@ -1,0 +1,125 @@
+<div class="modal-header header">
+  <h1 class="modal-title">Registrar Encuesta de Chequeo</h1>
+</div>
+<div class="modal-body">
+  <mat-horizontal-stepper linear #stepper>
+    <mat-step [stepControl]="primerGrupoFormulario" [editable]="isEditable">
+      <ng-template matStepLabel>Seccion 1</ng-template>
+      <form [formGroup]="primerGrupoFormulario">
+
+        <div class="row">
+          <div class="col-md-6">
+
+            <p>1. {{preguntas[0].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[0].contenidoRespuesta" aria-labelledby="example-radio-group-label"
+              formControlName="pregunta1" name="pregunta1" class="example-radio-group">
+              <mat-radio-button class="example-radio-button" *ngFor="let opcion of opcionesRespuesta" [value]="opcion">
+                {{opcion}}
+              </mat-radio-button>
+            </mat-radio-group>
+
+            <p>2. {{preguntas[1].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[1].contenidoRespuesta"
+              formControlName="pregunta2" name="pregunta2"  class="example-radio-group" >
+              <mat-radio-button class="example-radio-button" *ngFor="let opcion of opcionesRespuesta" [value]="opcion">
+                {{opcion}}
+              </mat-radio-button>
+            </mat-radio-group>
+
+            <p>3. {{preguntas[2].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[2].contenidoRespuesta"
+              formControlName="pregunta3" name="pregunta3"  class="example-radio-group">
+              <mat-radio-button class="example-radio-button" *ngFor="let opcion of opcionesRespuesta" [value]="opcion">
+                {{opcion}}
+              </mat-radio-button>
+            </mat-radio-group>
+
+
+          </div>
+          <div class="col-md-6">
+
+            <p>4. {{preguntas[3].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[3].contenidoRespuesta"
+              formControlName="pregunta4" name="pregunta4" class="example-radio-group">
+              <mat-radio-button class="example-radio-button" *ngFor="let opcion of opcionesRespuesta" [value]="opcion">
+                {{opcion}}
+              </mat-radio-button>
+            </mat-radio-group>
+
+            <p>5. {{preguntas[4].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[4].contenidoRespuesta"
+              formControlName="pregunta5" name="pregunta5" class="example-radio-group">
+              <mat-radio-button class="example-radio-button" *ngFor="let opcion of opcionesRespuesta" [value]="opcion">
+                {{opcion}}
+              </mat-radio-button>
+            </mat-radio-group>
+
+          </div>
+
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="segundoGrupoFormulario" [editable]="isEditable">
+      <form [formGroup]="segundoGrupoFormulario">
+        <ng-template matStepLabel>Seccion 2</ng-template>
+
+        <div class="row">
+          <div class="col-md-6">
+            <p>6. {{preguntas[5].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[5].contenidoRespuesta"
+              formControlName="pregunta6" name="pregunta6" class="example-radio-group">
+              <mat-radio-button class="example-radio-button" *ngFor="let opcion of opcionesRespuesta" [value]="opcion">
+                {{opcion}}
+              </mat-radio-button>
+            </mat-radio-group>
+
+            <p>7. {{preguntas[6].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[6].contenidoRespuesta"
+              formControlName="pregunta7" class="example-radio-group" name="pregunta7">
+              <mat-radio-button class="example-radio-button" *ngFor="let opcion of opcionesRespuesta" [value]="opcion">
+                {{opcion}}
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <div class="col-md-6">
+
+            <p>8. {{preguntas[7].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[7].contenidoRespuesta"
+              formControlName="pregunta8" name="pregunta8" class="example-radio-group">
+              <mat-radio-button class="example-radio-button" *ngFor="let opcion of opcionesRespuesta" [value]="opcion">
+                {{opcion}}
+              </mat-radio-button>
+            </mat-radio-group>
+
+            <p>9. {{preguntas[8].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[8].contenidoRespuesta"
+              formControlName="pregunta9" name="pregunta9" class="example-radio-group">
+              <mat-radio-button class="example-radio-button" *ngFor="let opcion of opcionesRespuesta" [value]="opcion">
+                {{opcion}}
+              </mat-radio-button>
+            </mat-radio-group>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-7">
+            <br><br>
+          </div>
+          <button mat-button matStepperNext [disabled]="segundoGrupoFormulario.invalid" (click)="RegistrarRespuesta()">
+            <mat-icon>save</mat-icon> Guardar Lista de chequeo
+          </button>
+          <button mat-button type="button" (click)="activeModal.close(null)">
+            <mat-icon>cancel</mat-icon> Cancelar
+          </button>
+        </div>
+
+      </form>
+    </mat-step>
+
+  </mat-horizontal-stepper>
+</div>
+
+

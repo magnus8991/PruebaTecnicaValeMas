@@ -1,0 +1,22 @@
+<header>
+    <a class="con-usuario" [routerLink]='["/"]' *ngIf="currentUser">
+        <img src="../../assets/logoMicroAlParque.png" alt="logoMicroAlParque">
+        <h1>MICRO</h1>
+        <h1 class="negro"> AL PARQUE</h1>
+    </a>
+    <a class="sin-usuario" [routerLink]='["/"]' *ngIf="!currentUser">
+        <img src="../../assets/logoMicroAlParque.png" alt="logoMicroAlParque">
+        <h1>MICRO</h1>
+        <h1 class="negro"> AL PARQUE</h1>
+    </a>
+    <div *ngIf="!currentUser" class="faq"><a [routerLink]='["/FAQ"]'>
+        <i class="fas fa-question-circle"></i><span> FAQ de usuario</span></a>
+    </div>
+    <div *ngIf="!currentUser" class="login">
+        <a [routerLink]='["/login", false]'><i class="fas fa-sign-in-alt"></i>
+            <span> Iniciar sesión</span></a>
+    </div>
+    <div *ngIf="currentUser" class="logout"><a [routerLink]='["/login", true]'>
+            <i class="fas fa-sign-out-alt"></i><span> Cerrar sesión</span></a></div>
+</header>
+<div class="decorador-lateral"></div>

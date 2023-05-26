@@ -1,0 +1,197 @@
+<div class="modal-header header">
+  <h1 class="modal-title">Ver lista de chequeo seleccionada</h1>
+</div>
+<div class="modal-body">
+  <mat-horizontal-stepper linear #stepper>
+    <mat-step>
+      <ng-template matStepLabel>Seccion 1</ng-template>
+
+      <div class="row">
+        <div class="col-md-6">
+          <p>1. {{preguntas[0].enunciado}}</p><br>
+          <div *ngIf="listaChequeo.respuestaChequeos[0].contenidoRespuesta == 'Cumple'">
+            <p style="font-weight: 700; color: rgb(1, 133, 1);">
+              -> {{listaChequeo.respuestaChequeos[0].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[0].contenidoRespuesta == 'Cumple Parcialmente'">
+            <p style="font-weight: 700; color: rgb(255, 123, 0);">
+              -> {{listaChequeo.respuestaChequeos[0].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[0].contenidoRespuesta == 'No Cumple'">
+            <p style="font-weight: 700; color: rgb(255, 0, 0);">
+              -> {{listaChequeo.respuestaChequeos[0].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[0].contenidoRespuesta == 'No Aplica'">
+            <p style="font-weight: 700; color: rgb(110, 108, 108);">
+              -> {{listaChequeo.respuestaChequeos[0].contenidoRespuesta}}</p><br>
+          </div>
+          <p>2. {{preguntas[1].enunciado}}</p><br>
+          <div *ngIf="listaChequeo.respuestaChequeos[1].contenidoRespuesta == 'Cumple'">
+            <p style="font-weight: 700; color: rgb(1, 133, 1);">
+              -> {{listaChequeo.respuestaChequeos[1].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[1].contenidoRespuesta == 'Cumple Parcialmente'">
+            <p style="font-weight: 700; color: rgb(255, 123, 0);">
+              -> {{listaChequeo.respuestaChequeos[1].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[1].contenidoRespuesta == 'No Cumple'">
+            <p style="font-weight: 700; color: rgb(255, 0, 0);">
+              -> {{listaChequeo.respuestaChequeos[1].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[1].contenidoRespuesta == 'No Aplica'">
+            <p style="font-weight: 700; color: rgb(110, 108, 108);">
+              -> {{listaChequeo.respuestaChequeos[1].contenidoRespuesta}}</p><br>
+          </div>
+          <p>3. {{preguntas[2].enunciado}}</p><br>
+          <div *ngIf="listaChequeo.respuestaChequeos[2].contenidoRespuesta == 'Cumple'">
+            <p style="font-weight: 700; color: rgb(1, 133, 1);">
+              -> {{listaChequeo.respuestaChequeos[2].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[2].contenidoRespuesta == 'Cumple Parcialmente'">
+            <p style="font-weight: 700; color: rgb(255, 123, 0);">
+              -> {{listaChequeo.respuestaChequeos[2].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[2].contenidoRespuesta == 'No Cumple'">
+            <p style="font-weight: 700; color: rgb(255, 0, 0);">
+              -> {{listaChequeo.respuestaChequeos[2].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[2].contenidoRespuesta == 'No Aplica'">
+            <p style="font-weight: 700; color: rgb(110, 108, 108);">
+              -> {{listaChequeo.respuestaChequeos[2].contenidoRespuesta}}</p><br>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <p>4. {{preguntas[3].enunciado}}</p><br>
+          <div *ngIf="listaChequeo.respuestaChequeos[3].contenidoRespuesta == 'Cumple'">
+            <p style="font-weight: 700; color: rgb(1, 133, 1);">
+              -> {{listaChequeo.respuestaChequeos[3].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[3].contenidoRespuesta == 'Cumple Parcialmente'">
+            <p style="font-weight: 700; color: rgb(255, 123, 0);">
+              -> {{listaChequeo.respuestaChequeos[3].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[3].contenidoRespuesta == 'No Cumple'">
+            <p style="font-weight: 700; color: rgb(255, 0, 0);">
+              -> {{listaChequeo.respuestaChequeos[3].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[3].contenidoRespuesta == 'No Aplica'">
+            <p style="font-weight: 700; color: rgb(110, 108, 108);">
+              -> {{listaChequeo.respuestaChequeos[3].contenidoRespuesta}}</p><br>
+          </div>
+          <p>5. {{preguntas[4].enunciado}}</p><br>
+          <div *ngIf="listaChequeo.respuestaChequeos[4].contenidoRespuesta == 'Cumple'">
+            <p style="font-weight: 700; color: rgb(1, 133, 1);">
+              -> {{listaChequeo.respuestaChequeos[4].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[4].contenidoRespuesta == 'Cumple Parcialmente'">
+            <p style="font-weight: 700; color: rgb(255, 123, 0);">
+              -> {{listaChequeo.respuestaChequeos[4].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[4].contenidoRespuesta == 'No Cumple'">
+            <p style="font-weight: 700; color: rgb(255, 0, 0);">
+              -> {{listaChequeo.respuestaChequeos[4].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[4].contenidoRespuesta == 'No Aplica'">
+            <p style="font-weight: 700; color: rgb(110, 108, 108);">
+              -> {{listaChequeo.respuestaChequeos[4].contenidoRespuesta}}</p><br>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-9">
+        </div>
+        <button mat-button matStepperNext>
+          <mat-icon>next_plan</mat-icon> Siguiente
+        </button>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Seccion 2</ng-template>
+
+      <div class="row">
+        <div class="col-md-6">
+          <p>6. {{preguntas[5].enunciado}}</p><br>
+          <div *ngIf="listaChequeo.respuestaChequeos[5].contenidoRespuesta == 'Cumple'">
+            <p style="font-weight: 700; color: rgb(1, 133, 1);">
+              -> {{listaChequeo.respuestaChequeos[5].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[5].contenidoRespuesta == 'Cumple Parcialmente'">
+            <p style="font-weight: 700; color: rgb(255, 123, 0);">
+              -> {{listaChequeo.respuestaChequeos[5].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[5].contenidoRespuesta == 'No Cumple'">
+            <p style="font-weight: 700; color: rgb(255, 0, 0);">
+              -> {{listaChequeo.respuestaChequeos[5].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[5].contenidoRespuesta == 'No Aplica'">
+            <p style="font-weight: 700; color: rgb(110, 108, 108);">
+              -> {{listaChequeo.respuestaChequeos[5].contenidoRespuesta}}</p><br>
+          </div>
+          <p>7. {{preguntas[6].enunciado}}</p><br>
+          <div *ngIf="listaChequeo.respuestaChequeos[6].contenidoRespuesta == 'Cumple'">
+            <p style="font-weight: 700; color: rgb(1, 133, 1);">
+              -> {{listaChequeo.respuestaChequeos[6].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[6].contenidoRespuesta == 'Cumple Parcialmente'">
+            <p style="font-weight: 700; color: rgb(255, 123, 0);">
+              -> {{listaChequeo.respuestaChequeos[6].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[6].contenidoRespuesta == 'No Cumple'">
+            <p style="font-weight: 700; color: rgb(255, 0, 0);">
+              -> {{listaChequeo.respuestaChequeos[6].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[6].contenidoRespuesta == 'No Aplica'">
+            <p style="font-weight: 700; color: rgb(110, 108, 108);">
+              -> {{listaChequeo.respuestaChequeos[6].contenidoRespuesta}}</p><br>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <p>8. {{preguntas[7].enunciado}}</p><br>
+          <div *ngIf="listaChequeo.respuestaChequeos[7].contenidoRespuesta == 'Cumple'">
+            <p style="font-weight: 700; color: rgb(1, 133, 1);">
+              -> {{listaChequeo.respuestaChequeos[7].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[7].contenidoRespuesta == 'Cumple Parcialmente'">
+            <p style="font-weight: 700; color: rgb(255, 123, 0);">
+              -> {{listaChequeo.respuestaChequeos[7].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[7].contenidoRespuesta == 'No Cumple'">
+            <p style="font-weight: 700; color: rgb(255, 0, 0);">
+              -> {{listaChequeo.respuestaChequeos[7].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[7].contenidoRespuesta == 'No Aplica'">
+            <p style="font-weight: 700; color: rgb(110, 108, 108);">
+              -> {{listaChequeo.respuestaChequeos[7].contenidoRespuesta}}</p><br>
+          </div>
+          <p>9. {{preguntas[8].enunciado}}</p><br>
+          <div *ngIf="listaChequeo.respuestaChequeos[8].contenidoRespuesta == 'Cumple'">
+            <p style="font-weight: 700; color: rgb(1, 133, 1);">
+              -> {{listaChequeo.respuestaChequeos[8].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[8].contenidoRespuesta == 'Cumple Parcialmente'">
+            <p style="font-weight: 700; color: rgb(255, 123, 0);">
+              -> {{listaChequeo.respuestaChequeos[8].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[8].contenidoRespuesta == 'No Cumple'">
+            <p style="font-weight: 700; color: rgb(255, 0, 0);">
+              -> {{listaChequeo.respuestaChequeos[8].contenidoRespuesta}}</p><br>
+          </div>
+          <div *ngIf="listaChequeo.respuestaChequeos[8].contenidoRespuesta == 'No Aplica'">
+            <p style="font-weight: 700; color: rgb(110, 108, 108);">
+              -> {{listaChequeo.respuestaChequeos[8].contenidoRespuesta}}</p><br>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-9">
+        </div>
+        <button mat-button matStepperPrevious><i class="fas fa-backward"></i> Anterior</button>
+      </div>
+    </mat-step>
+
+  </mat-horizontal-stepper>
+</div>

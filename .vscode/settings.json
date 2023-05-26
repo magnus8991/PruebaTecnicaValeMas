@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/65db12a8-63b4-41c2-ad6c-ca9665471c7b/resourceGroups/appsvc_windows_centralus/providers/Microsoft.Web/sites/micro-al-parque",
+    "appService.deploySubpath": "PruebaTecnica\\publish"
+}

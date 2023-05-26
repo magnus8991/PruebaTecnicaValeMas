@@ -1,0 +1,25 @@
+.container {
+    padding-top: 5%; padding-bottom: 5%;
+    width: 50%;
+    background: #FFFF;
+  }
+
+.tituloContainer {
+    color: rgb(109, 102, 102);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    font-size: 200%;
+    text-align: center;
+}
+
+.cuerpo {
+    box-shadow: 0px 0px 10px 0px black;
+  }
+
+  button {
+    width: 100%; font-weight: 600; height: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 120%; color: rgb(131, 126, 126);
+  }
+
+  .botones { margin-top: 3%;}

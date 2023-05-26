@@ -1,0 +1,407 @@
+<div class="modal-header header">
+  <h1 class="modal-title">Actualizar Manipulador de Alimentos</h1>
+</div>
+<div class="modal-body">
+  <mat-horizontal-stepper linear #stepper>
+    <mat-step [stepControl]="primerGrupoFormulario" [editable]="isEditable">
+      <ng-template matStepLabel>Datos Personales</ng-template>
+      <form [formGroup]="primerGrupoFormulario">
+
+        <div class="col-md-12 row">
+          <div class="form-group col-md-4">
+            <label>Identificacion:</label>
+            <input type="text" name="identificacion" formControlName="identificacion"
+              [(ngModel)]="manipulador.identificacion" placeholder="Digite aquí la identificacion" class="form-control">
+            <div *ngIf="identificacion.invalid && (identificacion.dirty ||
+                identificacion.touched)" class="alert alert-danger">
+              <div *ngIf="identificacion.errors.required">
+                La identificación es un valor requerido
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Sexo:</label>
+            <select name="sexo" class="form-control" formControlName="sexo" [(ngModel)]="manipulador.sexo">
+              <option value="">--Escoja el sexo--</option>
+              <option *ngFor="let sexo of listados.sexos" [value]="sexo">
+                {{sexo}}
+              </option>
+            </select>
+            <div *ngIf="sexo.invalid && (sexo.dirty || sexo.touched)" class="alert alert-danger">
+              <div *ngIf="sexo.errors.required">
+                El sexo es un valor requerido
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Edad:</label>
+            <input type="number" name="edad" formControlName="edad" [(ngModel)]="manipulador.edad"
+              placeholder="aqui la edad del manipulador" class="form-control">
+            <div *ngIf="edad.invalid && (edad.dirty || edad.touched)" class="alert alert-danger">
+              <div *ngIf="edad.errors.required">
+                La edad es un valor requerido
+              </div>
+              <div *ngIf="edad.errors.min || edad.errors.max">
+                La edad debe estar entre 18 y 120 años
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 row">
+          <div class="form-group col-md-4">
+            <label>Nombres:</label>
+            <input type="text" name="nombres" formControlName="nombres" [(ngModel)]="manipulador.nombres"
+              placeholder="Digite aquí el nombre del manipulador" class="form-control">
+            <div *ngIf="nombres.invalid && (nombres.dirty || nombres.touched)" class="alert alert-danger">
+              <div *ngIf="nombres.errors.required">
+                El nombre es un valor requerido
+              </div>
+              <div *ngIf="nombres.errors.minlength || nombres.errors.maxlength">
+                El nombre debe tener entre 5 y 30 caracteres
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Primer Apellido:</label>
+            <input type="text" name="primerApellido" formControlName="primerApellido"
+              [(ngModel)]="manipulador.primerApellido" placeholder="Digite aquí el primer apellido"
+              class="form-control">
+            <div *ngIf="primerApellido.invalid && (primerApellido.dirty ||
+                primerApellido.touched)" class="alert alert-danger">
+              <div *ngIf="primerApellido.errors.required">
+                El primer Apellido es un valor requerido
+              </div>
+              <div *ngIf="primerApellido.errors.minlength || primerApellido.errors.maxlength">
+                El primer Apellido debe tener entre 5 y 15 caracteres
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Segundo Apellido:</label>
+            <input type="text" name="segundoApellido" formControlName="segundoApellido"
+              [(ngModel)]="manipulador.segundoApellido" placeholder="Digite aquí el segundo apellido"
+              class="form-control">
+            <div *ngIf="segundoApellido.invalid && (segundoApellido.dirty ||
+                segundoApellido.touched)" class="alert alert-danger">
+              <div *ngIf="segundoApellido.errors.required">
+                El segundo apellido es un valor requerido
+              </div>
+              <div *ngIf="segundoApellido.errors.minlength || segundoApellido.errors.maxlength">
+                El segundo apellido debe tener entre 5 y 15 caracteres
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 row">
+          <div class="form-group col-md-4">
+            <label>Pais de procedencia:</label>
+            <select name="paisDeProcedencia" class="form-control" formControlName="paisDeProcedencia"
+              [(ngModel)]="manipulador.paisDeProcedencia">
+              <option value="">--Escoja el pais--</option>
+              <option *ngFor="let paisDeProcedencia of listados.paises" [value]="paisDeProcedencia">
+                {{paisDeProcedencia}}
+              </option>
+            </select>
+            <div *ngIf="paisDeProcedencia.invalid && (paisDeProcedencia.dirty
+                  || paisDeProcedencia.touched)" class="alert alert-danger">
+              <div *ngIf="paisDeProcedencia.errors.required">
+                El pais es un valor requerido
+              </div>
+              <div *ngIf="paisDeProcedencia.errors.maxlength">
+                El país de procedencia no debe debe tener más de 15 caracteres
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Estado Civil:</label>
+            <select name="estadoCivil" class="form-control" formControlName="estadoCivil"
+              [(ngModel)]="manipulador.estadoCivil">
+              <option value="">--Escoja el estado civil--</option>
+              <option *ngFor="let estadoCivil of listados.estadosCiviles" [value]="estadoCivil">
+                {{estadoCivil}}
+              </option>
+            </select>
+            <div *ngIf="estadoCivil.invalid && (estadoCivil.dirty ||
+                estadoCivil.touched)" class="alert alert-danger">
+              <div *ngIf="estadoCivil.errors.required">
+                El estado civil es un valor requerido
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label>Nivel Educativo:</label>
+            <select name="nivelEducativo" class="form-control" formControlName="nivelEducativo"
+              [(ngModel)]="manipulador.nivelEducativo">
+              <option value="">--Escoja el nivel educativo--</option>
+              <option *ngFor="let nivelEducativo of listados.nivelesAcademicos" [value]="nivelEducativo">
+                {{nivelEducativo}}
+              </option>
+            </select>
+            <div *ngIf="nivelEducativo.invalid && (nivelEducativo.dirty ||
+                nivelEducativo.touched)" class="alert alert-danger">
+              <div *ngIf="nivelEducativo.errors.required">
+                El nivel educativo es un valor requerido
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-9">
+            <br><br>
+          </div>
+          <button mat-button matStepperNext [disabled]="primerGrupoFormulario.invalid">
+            <mat-icon>next_plan</mat-icon> Siguiente
+          </button>
+          <button mat-button type="button" (click)="activeModal.close(null)">
+            <mat-icon>cancel</mat-icon> Cancelar
+          </button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="segundoGrupoFormulario" [editable]="isEditable">
+      <form [formGroup]="segundoGrupoFormulario">
+        <ng-template matStepLabel>Conocimientos</ng-template>
+
+        <div class="row">
+          <div class="col-md-6">
+            <p>{{preguntas[0].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[0].contenidoRespuesta"
+              formControlName="pregunta1" name="pregunta1" [ngClass]="{
+              'is-invalid': submitted }">
+              <mat-radio-button value="Si">Si</mat-radio-button>
+              <mat-radio-button value="No">No</mat-radio-button>
+            </mat-radio-group>
+
+            <div class="form-group">
+              <mat-form-field class="example-full-width">
+                <mat-label>{{preguntas[2].enunciado}}</mat-label>
+                <textarea matInput placeholder="resolución 2674 del 2013" [(ngModel)]="respuestas[2].contenidoRespuesta"
+                  formControlName="pregunta3"></textarea>
+              </mat-form-field>
+              <div *ngIf="pregunta3.invalid && (pregunta3.dirty ||
+                pregunta3.touched)" class="alert alert-danger">
+                <div *ngIf="pregunta3.errors.required">
+                  Error valor requerido
+                </div>
+                <div *ngIf="pregunta3.errors.minlength || pregunta3.errors.maxlength">
+                  El contenido de la respuesta tiene un limite entre 10 y 200 caracteres
+                </div>
+              </div>
+            </div>
+
+            <p>{{preguntas[1].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[1].contenidoRespuesta"
+              formControlName="pregunta2" name="pregunta2" [ngClass]="{
+              'is-invalid': submitted }">
+              <mat-radio-button value="Si">Si</mat-radio-button>
+              <mat-radio-button value="No">No</mat-radio-button>
+            </mat-radio-group>
+
+          </div>
+          <div class="col-md-6">
+
+            <p>{{preguntas[4].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[4].contenidoRespuesta"
+              formControlName="pregunta5" name="pregunta5" [ngClass]="{
+              'is-invalid': submitted }">
+              <mat-radio-button value="Si">Si</mat-radio-button>
+              <mat-radio-button value="No">No</mat-radio-button>
+            </mat-radio-group>
+
+            <div class="form-group">
+              <mat-form-field class="example-full-width">
+                <mat-label>{{preguntas[3].enunciado}}</mat-label>
+                <textarea matInput placeholder="resolución 2674 del 2013" [(ngModel)]="respuestas[3].contenidoRespuesta"
+                  formControlName="pregunta4"></textarea>
+              </mat-form-field>
+
+              <div *ngIf="pregunta4.invalid && (pregunta4.dirty ||
+                pregunta4.touched)" class="alert alert-danger">
+                <div *ngIf="pregunta4.errors.required">
+                  Error valor requerido
+                </div>
+                <div *ngIf="pregunta4.errors.minlength || pregunta4.errors.maxlength">
+                  El contenido de la respuesta tiene un limite entre 10 y 200 caracteres
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p>{{preguntas[5].enunciado}}</p>
+              <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[5].contenidoRespuesta"
+                formControlName="pregunta6" name="pregunta6" [ngClass]="{
+                'is-invalid': submitted }">
+                <mat-radio-button value="Si">Si</mat-radio-button>
+                <mat-radio-button value="No">No</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-9">
+            <br><br>
+          </div>
+          <button mat-button matStepperNext [disabled]="segundoGrupoFormulario.invalid">
+            <mat-icon>next_plan</mat-icon> Siguiente
+          </button>
+          <button mat-button type="button" (click)="activeModal.close(null)">
+            <mat-icon>cancel</mat-icon> Cancelar
+          </button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="tercerGrupoFormulario" [editable]="isEditable">
+      <ng-template matStepLabel>Actitudes</ng-template>
+      <form [formGroup]="tercerGrupoFormulario">
+
+        <div class="row">
+          <div class="col-md-6">
+            <p>{{preguntas[6].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[6].contenidoRespuesta"
+              formControlName="pregunta7" name="pregunta7" [ngClass]="{
+              'is-invalid': submitted }">
+              <mat-radio-button value="Si">Si</mat-radio-button>
+              <mat-radio-button value="No">No</mat-radio-button>
+            </mat-radio-group>
+
+            <p>{{preguntas[7].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[7].contenidoRespuesta"
+              formControlName="pregunta8" name="pregunta8" [ngClass]="{
+              'is-invalid': submitted }">
+              <mat-radio-button value="Si">Si</mat-radio-button>
+              <mat-radio-button value="No">No</mat-radio-button>
+            </mat-radio-group>
+
+            <p>{{preguntas[8].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[8].contenidoRespuesta"
+              formControlName="pregunta9" name="pregunta9" [ngClass]="{
+              'is-invalid': submitted }">
+              <mat-radio-button value="Si">Si</mat-radio-button>
+              <mat-radio-button value="No">No</mat-radio-button>
+            </mat-radio-group>
+
+            <div class="form-group">
+              <label>{{preguntas[9].enunciado}}</label>
+              <input type="text" name="pregunta10" [(ngModel)]="respuestas[9].contenidoRespuesta"
+                formControlName="pregunta10" placeholder="¿Hace cuánto?" class="form-control">
+              <div *ngIf="pregunta10.invalid && (pregunta10.dirty ||
+                pregunta10.touched)" class="alert alert-danger">
+                <div *ngIf="pregunta10.errors.required">
+                  Error es un valor requerido
+                </div>
+                <div *ngIf="pregunta10.errors.minlength || pregunta10.errors.maxlength">
+                  El contenido de la respuesta tiene un limite entre 10 y 200 caracteres
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-6">
+
+            <p>{{preguntas[10].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[10].contenidoRespuesta"
+              formControlName="pregunta11" name="pregunta11" [ngClass]="{
+              'is-invalid': submitted }">
+              <mat-radio-button value="Si">Si</mat-radio-button>
+              <mat-radio-button value="No">No</mat-radio-button>
+            </mat-radio-group>
+
+            <p>{{preguntas[11].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[11].contenidoRespuesta"
+              formControlName="pregunta12" name="pregunta12" [ngClass]="{
+              'is-invalid': submitted }">
+              <mat-radio-button value="Si">Si</mat-radio-button>
+              <mat-radio-button value="No">No</mat-radio-button>
+            </mat-radio-group>
+
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-9">
+            <br><br>
+          </div>
+          <button mat-button matStepperNext [disabled]="tercerGrupoFormulario.invalid">
+            <mat-icon>next_plan</mat-icon> Siguiente
+          </button>
+          <button mat-button type="button" (click)="activeModal.close(null)">
+            <mat-icon>cancel</mat-icon> Cancelar
+          </button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Practicas</ng-template>
+      <form [formGroup]="cuartoGrupoFormulario">
+
+        <div class="row">
+          <div class="col-md-6">
+
+            <p>{{preguntas[12].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[12].contenidoRespuesta"
+              formControlName="pregunta13" name="pregunta13" [ngClass]="{
+              'is-invalid': submitted }">
+              <mat-radio-button value="Si">Si</mat-radio-button>
+              <mat-radio-button value="No">No</mat-radio-button>
+            </mat-radio-group>
+
+            <p>{{preguntas[13].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[13].contenidoRespuesta"
+              formControlName="pregunta14" name="pregunta14" [ngClass]="{
+              'is-invalid': submitted }">
+              <mat-radio-button value="Si">Si</mat-radio-button>
+              <mat-radio-button value="No">No</mat-radio-button>
+            </mat-radio-group>
+
+          </div>
+          <div class="col-md-6">
+
+            <p>{{preguntas[14].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[14].contenidoRespuesta"
+              formControlName="pregunta15" name="pregunta15" [ngClass]="{
+              'is-invalid': submitted }">
+              <mat-radio-button value="Si">Si</mat-radio-button>
+              <mat-radio-button value="No">No</mat-radio-button>
+            </mat-radio-group>
+
+            <p>{{preguntas[15].enunciado}}</p>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="respuestas[15].contenidoRespuesta"
+              formControlName="pregunta16" name="pregunta16" [ngClass]="{
+              'is-invalid': submitted }">
+              <mat-radio-button value="Si">Si</mat-radio-button>
+              <mat-radio-button value="No">No</mat-radio-button>
+            </mat-radio-group>
+
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-8">
+            <br><br>
+          </div>
+          <button mat-button matStepperNext [disabled]="cuartoGrupoFormulario.invalid" (click)="ModificarManipulador()">
+            <mat-icon>save</mat-icon> Actualizar Manipulador
+          </button>
+          <button mat-button type="button" (click)="activeModal.close(null)">
+            <mat-icon>cancel</mat-icon> Cancelar
+          </button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>
+</div>

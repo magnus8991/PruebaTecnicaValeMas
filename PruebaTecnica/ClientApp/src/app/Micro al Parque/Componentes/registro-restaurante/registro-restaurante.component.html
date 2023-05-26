@@ -1,0 +1,229 @@
+<div class="card">
+  <div class="card-body">
+    <ul ngbNav #nav="ngbNav" [(activeId)]="active" [destroyOnHide]="false" class="nav-tabs">
+
+      <li [ngbNavItem]="1" [destroyOnHide]="false">
+        <a ngbNavLink>Datos del Propietario</a>
+        <ng-template ngbNavContent>
+          <form [formGroup]="formularioRegistroPropietario" onsubmit="return false">
+            <div class="cabecera-formulario">
+              <p>Datos del propietario</p>
+            </div>
+            <div class="row cuerpo">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Identificacion del propietario:</label>
+                  <input type="text" name="identificacion" formControlName="identificacion"
+                    [(ngModel)]="propietario.identificacion" placeholder="Digite aquí la identificacion"
+                    class="form-control">
+                  <div *ngIf="identificacion.invalid && (identificacion.dirty || identificacion.touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="identificacion.errors.required">
+                      La identificación es un valor requerido
+                    </div>
+                    <div *ngIf="identificacion.errors.minlength">
+                      El numero de identificación debe tener más de 7 caracteres
+                    </div>
+                    <div *ngIf="identificacion.errors.maxlength">
+                      El numero de identificación debe tener menos de 10 caracteres
+                    </div>
+                    <div *ngIf="identificacion.errors.pattern">
+                      Solo debe escribir números
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Nombres del propietario:</label>
+                  <input type="text" name="nombres" [(ngModel)]="propietario.nombres" formControlName="nombres"
+                    placeholder="Digite aquí el nombre del propietario" class="form-control">
+                  <div *ngIf="nombres.invalid && (nombres.dirty || nombres.touched)" class="alert alert-danger">
+                    <div *ngIf="nombres.errors.required">
+                      El nombre es un valor requerido
+                    </div>
+                    <div *ngIf="nombres.errors.minlength || nombres.errors.maxlength">
+                      El nombre debe tener entre 5 y 30 caracteres
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Primer Apellido:</label>
+                  <input type="text" name="primerApellido" [(ngModel)]="propietario.primerApellido"
+                    formControlName="primerApellido" placeholder="Digite aquí el primer apellido" class="form-control">
+                  <div *ngIf="primerApellido.invalid && (primerApellido.dirty || primerApellido.touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="primerApellido.errors.required">
+                      El primer Apellido es un valor requerido
+                    </div>
+                    <div *ngIf="primerApellido.errors.minlength || primerApellido.errors.maxlength">
+                      El primer Apellido debe tener entre 5 y 15 caracteres
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>segundo Apellido del propietario:</label>
+                  <input type="text" name="segundoApellido" [(ngModel)]="propietario.segundoApellido"
+                    formControlName="segundoApellido" placeholder="Digite aquí el segundo apellido"
+                    class="form-control">
+                  <div *ngIf="segundoApellido.invalid && (segundoApellido.dirty || segundoApellido.touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="segundoApellido.errors.required">
+                      El segundo apellido es un valor requerido
+                    </div>
+                    <div *ngIf="segundoApellido.errors.minlength || segundoApellido.errors.maxlength">
+                      El segundo apellido debe tener entre 5 y 15 caracteres
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Sexo :</label>
+                  <select name="sexo" class="form-control" [(ngModel)]="propietario.sexo" formControlName="sexo">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                  </select>
+                  <div *ngIf="sexo.invalid && (sexo.dirty || sexo.touched)" class="alert alert-danger">
+                    <div *ngIf="sexo.errors.required">
+                      El sexo es un valor requerido
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label>Edad del propietario:</label>
+                  <input type="number" name="edad" [(ngModel)]="propietario.edad" formControlName="edad"
+                    placeholder="Digite aqui la edad del propietario" class="form-control">
+                  <div *ngIf="edad.invalid && (edad.dirty || edad.touched)" class="alert alert-danger">
+                    <div *ngIf="edad.errors.required">
+                      La edad es un valor requerido
+                    </div>
+                    <div *ngIf="edad.errors.min || edad.errors.max">
+                      La edad debe estar entre 18 y 120 años
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="button">
+              <div class="col-md-1"></div>
+              <div class="col-md-5">
+                <button type="reset" class="notabla" mat-button (click)="onClose()">
+                  <i class="fas fa-backward"></i> Volver</button>
+              </div>
+              <div class="col-md-5">
+                <button type="reset" class="notabla" mat-button><i class="fas fa-broom"></i>
+                  Limpiar Formulario</button>
+              </div>
+              <div class="col-md-1"></div>
+            </div>
+          </form>
+
+        </ng-template>
+
+      </li>
+
+      <li [ngbNavItem]="2">
+        <a ngbNavLink>Datos Restaurante</a>
+        <ng-template ngbNavContent>
+          <form [formGroup]="formularioRegistro" onsubmit="return false">
+            <div class="cabecera-formulario">
+              <p>Registro de Restaurante</p>
+            </div>
+
+            <div class="row cuerpo">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>NIT del Restaurante:</label>
+                  <input type="text" name="NIT" [(ngModel)]="peticion.elemento.nit" formControlName="NIT"
+                    placeholder="Aquí el NIT del restaurante" class="form-control">
+                  <div *ngIf="NIT.invalid && (NIT.dirty || NIT.touched)" class="alert alert-danger">
+                    <div *ngIf="NIT.errors.required">
+                      El NIT es un valor requerido
+                    </div>
+                    <div *ngIf="NIT.errors.minlength || NIT.errors.maxlength">
+                      El NIT del restaurante debe tener entre 6 y 15 caracteres
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Nombre del Restaurante:</label>
+                  <input type="text" name="nombre" [(ngModel)]="peticion.elemento.nombre" formControlName="nombre"
+                    placeholder="Aquí el nombre del restaurante" class="form-control">
+                  <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+                    <div *ngIf="nombre.errors.required">
+                      El nombre es un valor requerido
+                    </div>
+                    <div *ngIf="nombre.errors.minlength || nombre.errors.maxlength">
+                      El nombre del restaurante debe tener entre 3 y 20 caracteres
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row col-md-12 button">
+              <div class="col-md-3">
+                <button type="reset" class="notabla" mat-button (click)="onClose()">
+                  <i class="fas fa-backward"></i> Volver</button>
+              </div>
+              <div class="col-md-3">
+                <button type="reset" class="notabla" mat-button><i class="fas fa-broom"></i>
+                  Limpiar Formulario</button>
+              </div>
+              <div class="col-md-3">
+                <button class="notabla" name="addSede" mat-button (click)="AgregarSede()"><i class="fas fa-plus"></i>
+                  Agregar Sede</button>
+              </div>
+              <div class="col-md-3">
+                <button name="registrar" class="notabla" mat-button (click)="Registrar()"><i class="fas fa-save"></i>
+                  Registrar Restaurante</button>
+              </div>
+            </div>
+            <table class="table table-hover table-sm table-bordered">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>NIT del restaurante</th>
+                  <th>Nombre de la Sede</th>
+                  <th>Dirección</th>
+                  <th>Telefono</th>
+                  <th>Quitar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let sede of peticionSede.elementos; index as i">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ sede.restauranteId }}</td>
+                  <td>{{ sede.nombre }}</td>
+                  <td>{{ sede.direccion }}</td>
+                  <td>{{ sede.telefono }}</td>
+                  <td>
+                    <div class="row">
+                      <div class="col-md-4"></div>
+                      <div class="col-md-4">
+                        <button class="btn btn-secondary" (click)="EliminarSede(i)">
+                          <mat-icon>delete</mat-icon>
+                        </button>
+                      </div>
+                      <div class="col-md-4"></div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+          </form>
+        </ng-template>
+      </li>
+    </ul>
+
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  </div>
+</div>

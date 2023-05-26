@@ -1,0 +1,93 @@
+<div class="card">
+  <div class="card-body">
+    <div class="cabecera-formulario">
+      <p>Actualizar datos de una Sede</p>
+    </div>
+
+    <div class="row cuerpo">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>NIT del Restaurante:</label>
+          <input type="text" readonly [(ngModel)]="peticion.elemento.restauranteId"
+            placeholder="Aquí el NIT del Restaurante" class="form-control">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>ID de la Sede:</label>
+          <input type="text" readonly [(ngModel)]="peticion.elemento.sedeId" placeholder="Aquí el ID de la Sede"
+            class="form-control">
+        </div>
+      </div>
+    </div>
+
+    <form [formGroup]="formularioActualizacion" onsubmit="return false">
+
+      <div class="row cuerpo">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Nombre de la Sede:</label>
+            <input type="text" name="nombreSede" [(ngModel)]="peticion.elemento.nombre" formControlName="nombre"
+              placeholder="Aquí el nombre de la sede" class="form-control">
+            <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+              <div *ngIf="nombre.errors.required">
+                El nombre es un valor requerido
+              </div>
+              <div *ngIf="nombre.errors.minlength || nombre.errors.maxlength">
+                El nombre de la sede debe tener entre 3 y 20 caracteres
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Direccion de la Sede:</label>
+            <input type="text" name="direccion" [(ngModel)]="peticion.elemento.direccion" formControlName="direccion"
+              placeholder="Aquí la direccion de la sede" class="form-control">
+            <div *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)" class="alert alert-danger">
+              <div *ngIf="direccion.errors.required">
+                La direccion de la sede es requerida
+              </div>
+              <div *ngIf="direccion.errors.minlength || direccion.errors.maxlength">
+                La direccion de la sede debe tener entre 5 y 30 caracteres
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label>Teléfono de la sede:</label>
+            <input type="text" name="telefono" [(ngModel)]="peticion.elemento.telefono" formControlName="telefono"
+              placeholder="Aquí la telefono de la sede" class="form-control">
+            <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="alert alert-danger">
+              <div *ngIf="telefono.errors.required">
+                El telefono de la sede es requerida
+              </div>
+              <div *ngIf="telefono.errors.minlength || telefono.errors.maxlength">
+                El telefono digitado debe tener entre 7 y 10 dígitos
+              </div>
+              <div *ngIf="telefono.errors.pattern">
+                Solo debe ingresar números
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="button">
+        <div class="col-md-4">
+          <button class="notabla" name="modificar" mat-button (click)="Actualizar()"><i class="fas fa-plus"></i>
+            Actualizar Sede</button>
+        </div>
+        <div class="col-md-4">
+          <button type="reset" class="notabla" mat-button><i class="fas fa-broom"></i> Limpiar Formulario
+          </button>
+        </div>
+        <div class="col-md-4">
+          <button type="reset" class="notabla" mat-button (click)="onClose()">
+            <i class="fas fa-backward"></i> Volver</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

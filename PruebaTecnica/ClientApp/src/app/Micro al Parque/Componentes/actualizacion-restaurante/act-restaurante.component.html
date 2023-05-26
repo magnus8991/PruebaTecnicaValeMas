@@ -1,0 +1,46 @@
+<div class="card">
+  <div class="card-body">
+
+    <div class="cabecera-formulario">
+      <p>Actualizacion de Restaurante</p>
+    </div>
+
+    <div class="row cuerpo">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>NIT del Restaurante:</label>
+          <input type="text" readonly [(ngModel)]="peticion.elemento.nit" placeholder="Aquí el NIT del Restaurante"
+            class="form-control">
+        </div>
+      </div>
+    </div>
+
+    <form [formGroup]="formularioActualizacion" onsubmit="return false">
+      <div class="form-group">
+        <label>Nombre del Restaurante:</label>
+        <input type="text" name="nombre" formControlName="nombre" [(ngModel)]="peticion.elemento.nombre"
+          placeholder="aqui el nombre del servicio" class="form-control">
+        <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
+          <div *ngIf="nombre.errors.required">
+            el nombre es un valor requerido
+          </div>
+          <div *ngIf="nombre.errors.minlength || nombre.errors.maxlength">
+            El nombre del restaurante debe tener entre 3 y 20 caracteres
+          </div>
+        </div>
+      </div>
+
+      <div class="row button">
+        <div class="col-md-6">
+          <button name="editarRestaurante" class="notabla" mat-button (click)="Actualizar()"><i class="fas fa-sync-alt"></i>
+            Actualizar</button>
+        </div>
+        <div class="col-md-6">
+          <button class="notabla condicion" mat-button (click)="onClose()">
+            <i class="fas fa-backward"></i> Volver</button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

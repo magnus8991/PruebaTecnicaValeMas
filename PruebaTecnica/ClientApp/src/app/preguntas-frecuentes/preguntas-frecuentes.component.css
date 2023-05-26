@@ -1,0 +1,20 @@
+.container {padding-top: 1%; padding-bottom: 1%;}
+
+    .encabezado {
+        background: #FFFF;
+        box-shadow: 0px 0px 10px 0px black;
+    }
+
+    .cabecera-formulario {
+        background-color:rgb(252, 42, 42);
+        margin: 6%; border-radius: 6px;
+    }
+
+    .cabecera-formulario p{
+        text-align:center; font-weight: 500;
+        font-size: 40px; color: #FFFFFF;
+    }
+
+    .texto, .pregunta {text-align: justify; margin-left: 6%; margin-right: 6%;}
+
+    .pregunta {font-weight: 600; font-size: 120%;}

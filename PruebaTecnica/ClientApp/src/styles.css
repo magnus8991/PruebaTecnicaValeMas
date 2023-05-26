@@ -1,0 +1,21 @@
+html::-webkit-scrollbar {
+    width:15px; height: 10px;
+    -webkit-appearance: none;
+}
+
+html::-webkit-scrollbar-button:increment,html::-webkit-scrollbar-button {
+    display: none;
+} 
+
+html::-webkit-scrollbar-thumb {
+    background-color: #666161;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+html::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
